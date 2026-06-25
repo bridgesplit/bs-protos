@@ -1,0 +1,8 @@
+syntax = "proto3";
+package bridgesplit.market;
+
+message MarketInfo {
+  string market_id = 1;
+  string principal_mint = 2;
+  uint64 tvl = 3;
+}

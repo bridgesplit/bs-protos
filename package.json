@@ -1,0 +1,17 @@
+{
+  "name": "@bridgesplit/bs-protos",
+  "version": "2.0.2",
+  "description": "Shared proto files across multi-language services.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "postinstall": "node scripts/setup.js 2>/dev/null || true"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bridgesplit/bs-protos.git"
+  },
+  "keywords": ["bridgesplit", "protobuf", "typescript"],
+  "license": "MIT"
+}
